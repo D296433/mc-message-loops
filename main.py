@@ -30,5 +30,16 @@ def connect():
                 except:
                     print("Error sending message: " + i)
                     continue
-
+    @On(bot, "kicked")
+    def kicked(*args):
+        print("Kicked")
+        connect()
+    @On(bot, "end")
+    def end(*args):
+        print("End")
+        connect()
+    @On(bot, "error")
+    def error(*args):
+        print("Error")
+        connect()
 connect()
